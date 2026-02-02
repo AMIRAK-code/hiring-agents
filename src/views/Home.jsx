@@ -1,7 +1,7 @@
 import React from 'react';
 import { Search, Brain, Calendar, ArrowRight, MessageSquare, Bot } from 'lucide-react';
 
-export default function HomeView() {
+export default function HomeView({ setCurrentView, onOpenWaitlist }) {
     return (
         <div className="flex flex-col min-h-screen pt-16 animate-in fade-in duration-500">
             {/* Hero Section */}
@@ -29,11 +29,17 @@ export default function HomeView() {
                             </div>
 
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                                <button className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                                <button
+                                    onClick={onOpenWaitlist}
+                                    className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                >
                                     Start Hiring
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </button>
-                                <button className="inline-flex h-12 items-center justify-center rounded-lg border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                                <button
+                                    onClick={() => setCurrentView('platform')}
+                                    className="inline-flex h-12 items-center justify-center rounded-lg border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                >
                                     View Demo
                                 </button>
                             </div>
@@ -167,6 +173,22 @@ export default function HomeView() {
                     </div>
                 </div>
             </section>
+
+            {/* Footer */}
+            <footer className="border-t bg-muted/20 py-12">
+                <div className="container mx-auto px-4 flex flex-col items-center">
+                    <h3 className="text-2xl font-bold mb-6">Ready to automate your hiring?</h3>
+                    <div className="w-full max-w-sm space-y-2">
+                        <button
+                            onClick={onOpenWaitlist}
+                            className="w-full h-10 rounded-md bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors"
+                        >
+                            Join the Waitlist
+                        </button>
+                    </div>
+                    <p className="mt-8 text-xs text-muted-foreground">© 2026 HiringAgents.ai. All rights reserved.</p>
+                </div>
+            </footer>
         </div>
     );
 }

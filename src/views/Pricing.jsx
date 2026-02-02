@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check, X } from 'lucide-react';
 
-export default function PricingView() {
+export default function PricingView({ onOpenWaitlist }) {
     return (
         <div className="min-h-screen pt-24 pb-12 animate-in fade-in duration-500">
             <div className="container mx-auto px-4">
@@ -23,13 +23,16 @@ export default function PricingView() {
                             <li className="flex items-center text-sm"><Check className="h-4 w-4 mr-2 text-primary" /> 50 Resumes/mo</li>
                             <li className="flex items-center text-sm"><Check className="h-4 w-4 mr-2 text-primary" /> Basic Email Support</li>
                         </ul>
-                        <button className="w-full rounded-lg border border-input bg-background py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+                        <button
+                            onClick={onOpenWaitlist}
+                            className="w-full rounded-lg border border-input bg-background py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                        >
                             Get Started
                         </button>
                     </div>
 
                     {/* Growth Plan - Highlighted */}
-                    <div className="relative rounded-3xl border-2 border-primary bg-card text-card-foreground shadow-lg p-8 flex flex-col scale-105 z-10">
+                    <div className="relative rounded-3xl border-2 border-primary bg-card text-card-foreground shadow-lg p-8 flex flex-col scale-105 z-10 transition-transform hover:scale-[1.07]">
                         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4">
                             <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</span>
                         </div>
@@ -42,7 +45,10 @@ export default function PricingView() {
                             <li className="flex items-center text-sm"><Check className="h-4 w-4 mr-2 text-primary" /> ATS Integration</li>
                             <li className="flex items-center text-sm"><Check className="h-4 w-4 mr-2 text-primary" /> Priority Support</li>
                         </ul>
-                        <button className="w-full rounded-lg bg-primary py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 shadow-md">
+                        <button
+                            onClick={onOpenWaitlist}
+                            className="w-full rounded-lg bg-primary py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 shadow-md"
+                        >
                             Start Free Trial
                         </button>
                     </div>
@@ -58,7 +64,10 @@ export default function PricingView() {
                             <li className="flex items-center text-sm"><Check className="h-4 w-4 mr-2 text-primary" /> Dedicated Success Manager</li>
                             <li className="flex items-center text-sm"><Check className="h-4 w-4 mr-2 text-primary" /> SLA & Compliance</li>
                         </ul>
-                        <button className="w-full rounded-lg border border-input bg-background py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+                        <button
+                            onClick={onOpenWaitlist}
+                            className="w-full rounded-lg border border-input bg-background py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                        >
                             Contact Sales
                         </button>
                     </div>

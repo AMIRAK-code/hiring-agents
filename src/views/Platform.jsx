@@ -12,7 +12,7 @@ import {
     Clock
 } from 'lucide-react';
 
-export default function PlatformView() {
+export default function PlatformView({ onOpenWaitlist }) {
     const [logs, setLogs] = useState([
         { id: 1, agent: 'Sourcer', message: 'Scanning LinkedIn profiles for "Senior React Engineer"...', time: '10:41:02' },
         { id: 2, agent: 'System', message: 'Rate limit check: OK. Usage: 15%', time: '10:41:05' },
@@ -205,9 +205,9 @@ export default function PlatformView() {
                                             </td>
                                             <td className="px-6 py-4">
                                                 <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium border ${candidate.status === 'Interviewing' ? 'bg-blue-100 text-blue-800 border-blue-200' :
-                                                        candidate.status === 'Offer Sent' ? 'bg-green-100 text-green-800 border-green-200' :
-                                                            candidate.status === 'Rejected' ? 'bg-muted text-muted-foreground border-border' :
-                                                                'bg-yellow-100 text-yellow-800 border-yellow-200'
+                                                    candidate.status === 'Offer Sent' ? 'bg-green-100 text-green-800 border-green-200' :
+                                                        candidate.status === 'Rejected' ? 'bg-muted text-muted-foreground border-border' :
+                                                            'bg-yellow-100 text-yellow-800 border-yellow-200'
                                                     }`}>
                                                     {candidate.status}
                                                 </span>
